@@ -1,0 +1,99 @@
+SellThem (regular)
+==================
+
+javac -d out -m farm.stock.count,farm.stock.sale --module-source-path src
+java -p out -m farm.stock.sale/farm.stock.sale.SellThem
+
+
+SellThem (JAR)
+==============
+
+jar -cvf mods/farm.stock.sale.jar -C out/farm.stock.sale/ .
+jar -cvf mods/farm.stock.count.jar -C out/farm.stock.count/ .
+
+java -p mods -m farm.stock.sale/farm.stock.sale.SellThem
+
+
+VetMain
+=======
+
+javac -d out --module-source-path src -m farm.vet,farm.owner,farm.animals
+java -p out -m farm.vet/farm.vet.VetMain
+
+
+VetMain (using JARs)
+====================
+
+jar --create --verbose --file mods/farm.vet.jar -C out/farm.vet .
+jar -cvf mods/farm.owner.jar -C out/farm.owner .
+jar -cvf mods/farm.animals.jar -C out/farm.animals .
+
+java -p mods -m farm.vet/farm.vet.VetMain
+
+
+Describing a module or JAR
+==========================
+
+java -p mods --describe-module farm.animals
+
+jar --describe-module --file=mods/farm.animals.jar
+jar -d -f mods/farm.animals.jar
+
+
+jdeps
+=====
+
+jdeps -s --module-path mods mods/farm.animals.jar
+jdeps -s --module-path mods mods/farm.owner.jar
+
+
+jmod
+====
+
+C:\Program Files\Java\jdk-11\jmods
+jmod describe java.se.jmod
+
+
+Services
+========
+
+javac -d out --module-source-path src -m softdrink.api,softdrink.large,softdrink.customer,softdrink.medium,softdrink.extralarge
+
+--> shorter version (softdrink is required by all of them and is pulled in by the first one):
+javac -d out --module-source-path src -m softdrink.large,softdrink.customer,softdrink.medium,softdrink.large,softdrink.extralarge
+javac -d out --module-source-path src -m softdrink.extralarge
+java -p out -m softdrink.customer/softdrink.customer.Main
+
+--> using a JAR file for ExtraLarge (so it can be dynamically "dropped in" during runtime):
+jar -cvf mods/softdrink.extralarge.jar -C out/softdrink.extralarge .
+--> now, delete out/softdrink.extralarge folder to ensure JAR is used for softdrink.extralarge module
+java -p mods;out -m softdrink.customer/softdrink.customer.Main
+
+// OwnerService
+javac -d out --module-source-path src -m owner.api,farm.vet,farm.owner,farm.neighbour
+java -p out -m farm.vet/farm.vet.VetMain
+
+
+
+Unnamed Module
+==============
+TypesOfModules\unnamed>javac -d out src\test\Main.java
+TypesOfModules\unnamed>java -cp out test.Main
+TypesOfModules\unnamed>jar -cvf mods\un.jar -C out test\Main.class   - note the -C format!!
+TypesOfModules\unnamed>java -cp mods\un.jar test.Main
+
+Automatic Module
+================
+
+// 1. Create non-modular JAR
+TypesOfModules\automatic\text-utils>javac -d out src\text\utils\Utils.java
+TypesOfModules\automatic>jar --create --file text.app\mods\text-utils.jar -C text-utils\out .
+TypesOfModules\automatic>jar -cf text.app\mods\text-utils.jar -C text-utils\out .     (shorter version)
+
+// 2. Create a modular application that uses the non-modular JAR in the --module-path
+TypesOfModules\automatic\text.app>javac --module-path mods -d out src/sample.typing/module-info.java src/sample.typing/sample/typing/Main.java
+TypesOfModules\automatic\text.app>java --module-path out;mods --module text.app/sample.typing.Main
+
+
+
+
