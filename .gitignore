@@ -30,4 +30,6 @@ bin/
 
 .idea
 *.ser
+.sample_dir/
+
 

@@ -8,7 +8,7 @@ public class LocalVariableTypeInference {
     //      - constructors, methods or init blocks
     // 2. Where they CANNOT be used
     //      - constructors/methods parameters or instance/class variables ("local")
-    //      - caveat: lambdas where the parameter type can be inferred!
+    //      - caveat: j8.lambdas where the parameter type can be inferred!
     // 3. A var is always initialised on the same statement where it is declared.
     //      e.g. var x = 8;
     // 4. The value of var can change but the type cannot.
