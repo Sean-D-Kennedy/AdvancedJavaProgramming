@@ -1,0 +1,31 @@
+Udemy project:
+	C:\Users\skennedy\IdeaProjects\Udemy\src\java21\pattern_matching_for_switch
+	C:\Users\skennedy\IdeaProjects\Udemy\target\java21\pattern_matching_for_switch
+
+ALL commands are from "Udemy" folder: C:\Users\skennedy\IdeaProjects\Udemy
+
+javac -d target src/java21/pattern_matching_for_switch/QualifiedEnumConstants.java
+java -cp target java21.pattern_matching_for_switch.QualifiedEnumConstants
+=============================================================================================================
+
+
+Sequenced Collections (which uses unnamed classes/instance main() => no packages) :
+
+    - ALL commands are from "Udemy" folder: 
+	C:\Users\skennedy\IdeaProjects\Udemy\src\java21\sequenced_collections
+
+javac --enable-preview --release 21 SequencedCollections.java
+java --enable-preview SequencedCollections
+
+=============================================================================================================
+Assignment
+C:\Users\skennedy\IdeaProjects\Udemy\src\assignment>javac -d . --enable-preview --release 21 *.java
+C:\Users\skennedy\IdeaProjects\Udemy\src\assignment>java -cp . --enable-preview University
+
+Root is : C:\Users\skennedy\IdeaProjects\Udemy
+javac -d target/classes --enable-preview --release 21 src/java21/assignment/*.java
+
+	- Note: University.class in in the unnamed package so it goes directly into target/classes. The remaining class files go into
+      	        target/classes/java21/assignment (package name is appended onto target/classes)
+
+java -cp target/classes --enable-preview University
