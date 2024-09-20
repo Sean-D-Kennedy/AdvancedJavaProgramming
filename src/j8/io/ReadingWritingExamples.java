@@ -21,8 +21,8 @@ public class ReadingWritingExamples {
     public static void copyTextFile(boolean buffering){
 //        File src = new File ("C:\\Users\\skennedy\\Documents\\NetbeansProjects\\Udemy\\src\\main\\java\\lets_get_certified\\j8\\io\\ReadingWritingExamples.java"); // Windows
 //        File dest = new File ("C:\\Users\\skennedy\\Documents\\NetbeansProjects\\Udemy\\src\\main\\java\\lets_get_certified\\j8\\io\\ReadingWritingExamples2.java");
-        File src = new File ("/Users/seankennedy/aUdemy/Source Code/Advanced Java and Spring Boot/src/j8/io/sample.txt"); // Mac
-        File dest = new File ("/Users/seankennedy/aUdemy/Source Code/Advanced Java and Spring Boot/src/j8/io/sample2.txt");
+        File src = new File ("/Users/seankennedy/aUdemy/Source Code/Advanced Java/src/j8/io/sample.txt"); // Mac
+        File dest = new File ("/Users/seankennedy/aUdemy/Source Code/Advanced Java/src/j8/io/sample2.txt");
 
         // in-built close() with try-with-resources
         try(var rdr = new BufferedReader(new FileReader(src));
@@ -53,8 +53,8 @@ public class ReadingWritingExamples {
         // 2. Using relative path instead of absolute path
 //        System.out.println("Working Directory = " + System.getProperty("user.dir"));// C:\Users\skennedy\Documents\NetbeansProjects\Udemy   (Windows)
         System.out.println("Working Directory = " + System.getProperty("user.dir"));// /Users/seankennedy/aUdemy/Source Code/Advanced Java and Spring Boot   (Mac)
-        File src = new File ("/Users/seankennedy/aUdemy/Source Code/Advanced Java and Spring Boot/src/j8/io/SampleImage.png"); // Mac
-        File dest = new File ("/Users/seankennedy/aUdemy/Source Code/Advanced Java and Spring Boot/src/j8/io/SampleImage2.png");
+        File src = new File ("/Users/seankennedy/aUdemy/Source Code/Advanced Java/src/j8/io/SampleImage.png"); // Mac
+        File dest = new File ("/Users/seankennedy/aUdemy/Source Code/Advanced Java/src/j8/io/SampleImage2.png");
 
         // in-built close() with try-with-resourcse
         try(var in = new BufferedInputStream(new FileInputStream(src));
