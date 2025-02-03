@@ -31,5 +31,5 @@ bin/
 .idea
 *.ser
 .sample_dir/
-
+/src/test_stuff
 
