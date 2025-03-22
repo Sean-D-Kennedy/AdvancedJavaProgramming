@@ -124,11 +124,11 @@ public class Test{
 ## Definition-lists
 
 Bark
-: A noise a dog makes.
+: A noise a dog makes.  
 : The protective outer layer of a tree trunk.
 
 Duck
-: A water fowl.
+: A water fowl.  
 : To lower your head/body quickly to avoid something.
 
 ## Emoji
