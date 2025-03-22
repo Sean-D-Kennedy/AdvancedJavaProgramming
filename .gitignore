@@ -28,8 +28,11 @@ bin/
 ### Mac OS ###
 .DS_Store
 
+### IntelliJ IDEA ###
 .idea
 *.ser
+*.iml
 .sample_dir/
 /src/test_stuff
+
 
