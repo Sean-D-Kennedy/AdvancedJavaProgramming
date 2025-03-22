@@ -136,5 +136,3 @@ Duck
 ## Emoji
 
 😂   copied from emojipedia.org  
-
-
