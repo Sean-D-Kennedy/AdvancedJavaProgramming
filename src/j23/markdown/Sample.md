@@ -123,7 +123,9 @@ public class Test{
 
 ## Definition-lists
 
-Bark     <!-- 2 spaces after the 'k' and then Enter -->
+<!-- 2 spaces after the 'k' and then Enter or <br /> -->
+
+Bark  
 : A noise a dog makes.  
 : The protective outer layer of a tree trunk.
 
