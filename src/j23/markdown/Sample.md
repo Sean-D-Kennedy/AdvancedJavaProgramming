@@ -8,13 +8,8 @@
 - [Code Blocks](#code-blocks)
 - [Blockquotes](#blockquotes)
 - [Tables](#tables)
-- [Horizontal Rules](#horizontal-rules)
-- [Footnotes](#footnotes)
 - [Definition Lists](#definition-lists)
 - [Emoji](#emoji)
-- [Math](#math)
-- [Details](#details)
-- [Raw HTML](#raw-html)
 
 ---
 
@@ -46,18 +41,29 @@ A new paragraph.
 
 ### Unordered List
 
-- Item 1
-  - Subitem 1a 
-  - Subitem 1b
-- Item 2
+### Words with Multiple Meanings
+
+- **Bank**
+    - *Financial Institution*: A place where money is deposited, withdrawn, or loaned.
+    - *River Bank*: The land alongside or sloping down to a river or lake.
+
+- **Bat**
+    - *Animal*: A nocturnal flying mammal.
+    - *Sports Equipment*: A tool used for hitting a ball in games like baseball or cricket.
+
+- **Bark**
+    - *Sound*: The sharp cry of a dog.
+    - *Tree Covering*: The tough, protective outer layer of a tree trunk.
 
 ### Ordered List
 
-1. a
-2. b
-   1. b1 
-   2. b2
-3. c
+1. **Duck**
+    1. *Animal*: A waterfowl with a broad bill.
+    2. *Verb*: To lower the head or body quickly to avoid something.
+
+2. **Spring**
+    1. *Season*: The season following winter and preceding summer.
+    2. *Coil*: A mechanical device that stores energy (as in a spiral spring).
 
 ### Task List
 
@@ -96,4 +102,37 @@ public class Test{
 }
 ```
 
-Another line
+## Blockquotes
+
+> "Give me six hours to chop down a tree and I will spend the first four sharpening the axe".
+>
+> "You can fool all the people some of the time,  
+> and some of the people all the time,  
+> but you cannot fool all the people all the time".
+> 
+> > Abraham Lincoln (1809-1865).
+
+## Tables
+
+| Name   | Age | Nationality |
+|--------|-----|-------------|
+| John   | 12  | English     |
+| Pierre | 25  | French      |
+| Mark   | 45  | American    |
+
+
+## Definition-lists
+
+Bark
+: A noise a dog makes.
+: The protective outer layer of a tree trunk.
+
+Duck
+: A water fowl.
+: To lower your head/body quickly to avoid something.
+
+## Emoji
+
+😂   copied from emojipedia.org  
+
+
