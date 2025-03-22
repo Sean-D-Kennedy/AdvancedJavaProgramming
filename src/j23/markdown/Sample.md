@@ -35,6 +35,10 @@
 **Bold text** using double asterisks or __underscores__  
 ***Bold and italic***  
 ~~Strikethrough~~
+Some text.  
+A new line.
+
+A new paragraph.
 
 ---
 
@@ -43,17 +47,17 @@
 ### Unordered List
 
 - Item 1
-   - Subitem 1a
-   - Subitem 1b
+  - Subitem 1a 
+  - Subitem 1b
 - Item 2
 
 ### Ordered List
 
-1. First item
-2. Second item
-   1. Nested item A
-   2. Nested item B
-3. Third item
+1. a
+2. b
+   1. b1 
+   2. b2
+3. c
 
 ### Task List
 
@@ -66,11 +70,10 @@
 
 ### Links
 
-Check out [OpenAI](https://www.openai.com).
+My favourite search engine is [Google](https://www.google.com).
 
 ### Images
-
-![Placeholder Image](https://via.placeholder.com/100 "A 100x100 placeholder image")
+![Turtle](/images/tortoise.jpg)
 
 ---
 
@@ -78,14 +81,19 @@ Check out [OpenAI](https://www.openai.com).
 
 ### Inline Code
 
-Here is some inline code: `console.log("Hello, Markdown!")`.
+Functional interfaces in Java can be annotated with : `@FunctionalInterface` and if the interface  
+contains just one `abstract` method, the code will comppile.
 
 ### Fenced Code Blocks
 
-Python example:
+My first Java program:
 
-```python
-def hello():
-    print("Hello, Markdown!")
+```
+public class Test{
+    public static void main(String []args){
+        System.out.ptintln("Hello World");
+    }
+}
+```
 
-hello()
+Another line
