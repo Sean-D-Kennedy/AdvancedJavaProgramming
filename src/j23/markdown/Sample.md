@@ -123,12 +123,12 @@ public class Test{
 
 ## Definition-lists
 
-Bark
+Bark     <!-- 2 spaces after the 'k' and then Enter -->
 : A noise a dog makes.  
 : The protective outer layer of a tree trunk.
 
-Duck
-: A water fowl.  
+Duck  
+: A water fowl.<br /><!-- 2 spaces after the 'k' and then Enter or <br /> -->
 : To lower your head/body quickly to avoid something.
 
 ## Emoji
