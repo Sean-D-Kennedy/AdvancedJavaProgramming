@@ -85,7 +85,7 @@ My favourite search engine is [Google](https://www.google.com).
 ### Images
 <!-- The ! indicatse that this is an image.
      [Turtle] is the alternate text to display if the image cannot be found.
-     (/images/tortoise.jpg) is the URL or file path to the image.
+     (../../../images/tortoise.jpg) is the URL or file path to the image.
 -->
 ![Turtle](../../../images/tortoise.jpg)
 
