@@ -1,6 +1,8 @@
-# All Options Markdown Sample
+# Markdown Sample
 
 ## Table of Contents
+<!-- An unordered list. Each list item has a [link text](#anchor).
+-->
 - [Headings](#headings)
 - [Emphasis](#emphasis)
 - [Lists](#lists)
@@ -26,6 +28,7 @@
 
 ## Emphasis
 
+<!-- 2 spaces <CR> at end of each line -->
 *Italic text* using asterisks or _underscores_  
 **Bold text** using double asterisks or __underscores__  
 ***Bold and italic***  
@@ -104,7 +107,8 @@ public class Test{
 
 ## Blockquotes
 
-> "Give me six hours to chop down a tree and I will spend the first four sharpening the axe".
+> "Give me six hours to chop down a tree and I will  
+> spend the first four sharpening the axe".
 >
 > "You can fool all the people some of the time,  
 > and some of the people all the time,  
@@ -130,7 +134,7 @@ Bark
 : The protective outer layer of a tree trunk.
 
 Duck  
-: A water fowl.<br /><!-- 2 spaces after the 'k' and then Enter or <br /> -->
+: A water fowl.<br />
 : To lower your head/body quickly to avoid something.
 
 ## Emoji
