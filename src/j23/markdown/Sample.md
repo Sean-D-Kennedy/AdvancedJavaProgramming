@@ -32,7 +32,7 @@
 *Italic text* using asterisks or _underscores_  
 **Bold text** using double asterisks or __underscores__  
 ***Bold and italic***  
-~~Strikethrough~~
+~~Strikethrough~~  
 Some text.  
 A new line.
 
@@ -45,14 +45,14 @@ A new paragraph.
 ### Unordered List
 
 ### Words with Multiple Meanings
-
+<!-- 4 spaces for sub lists -->
 - **Bank**
     - *Financial Institution*: A place where money is deposited, withdrawn, or loaned.
     - *River Bank*: The land alongside or sloping down to a river or lake.
 
 - **Bat**
     - *Animal*: A nocturnal flying mammal.
-    - *Sports Equipment*: A tool used for hitting a ball in games like baseball or cricket.
+    - *Sports Equipment*: A tool used for hitting a ball in games like baseball.
 
 - **Bark**
     - *Sound*: The sharp cry of a dog.
@@ -60,6 +60,7 @@ A new paragraph.
 
 ### Ordered List
 
+<!-- 4 spaces for sub lists -->
 1. **Duck**
     1. *Animal*: A waterfowl with a broad bill.
     2. *Verb*: To lower the head or body quickly to avoid something.
@@ -82,7 +83,11 @@ A new paragraph.
 My favourite search engine is [Google](https://www.google.com).
 
 ### Images
-![Turtle](/images/tortoise.jpg)
+<!-- The ! indicatse that this is an image.
+     [Turtle] is the alternate text to display if the image cannot be found.
+     (/images/tortoise.jpg) is the URL or file path to the image.
+-->
+![Turtle](../../../images/tortoise.jpg)
 
 ---
 
@@ -90,8 +95,8 @@ My favourite search engine is [Google](https://www.google.com).
 
 ### Inline Code
 
-Functional interfaces in Java can be annotated with : `@FunctionalInterface` and if the interface  
-contains just one `abstract` method, the code will comppile.
+Functional interfaces in Java can be annotated with : `@FunctionalInterface` and if  
+the interface contains just one `abstract` method, the code will compile.
 
 ### Fenced Code Blocks
 
