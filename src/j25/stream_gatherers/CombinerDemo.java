@@ -2,6 +2,8 @@ package j25.stream_gatherers;
 
 import module java.base;
 
+// This demo shows how a parallel gatherer works end-to-end:
+//     - each subtask builds its own state, and the combiner merges those states into one final result.
 public class CombinerDemo {
     void main() {
         long n =
