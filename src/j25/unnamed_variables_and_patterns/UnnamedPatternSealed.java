@@ -1,4 +1,4 @@
-package j22.unnamed_variables_and_patterns;
+package j25.unnamed_variables_and_patterns;
 
 sealed interface Shape permits Circle, Rectangle {}
 

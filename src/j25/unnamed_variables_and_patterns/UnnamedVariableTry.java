@@ -1,4 +1,4 @@
-package j22.unnamed_variables_and_patterns;
+package j25.unnamed_variables_and_patterns;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
