@@ -1,18 +1,18 @@
 package j25.stream_gatherers;
 
-import java.util.stream.Gatherer;
+import module java.base;
 
 public class CombinerDemo {
     void main() {
         long n =
-                java.util.stream.IntStream.rangeClosed(1, 1_000_000)
+                IntStream.rangeClosed(1, 400)
                         .parallel()
-                        .boxed()
+                        .boxed()// IntStream -> Stream<Integer> (gatherers work on object streams)
                         .gather(countElementsInParallel())
                         .findFirst()// as the gatherer just emits one element
                         .orElseThrow();
 
-        IO.println(n); // 1000000
+        IO.println(n); // 400
     }
 //    Gatherer<T, A, R> is conceptually:
 //      T = input element type (what comes into the gatherer) - Integer here
@@ -24,7 +24,6 @@ public class CombinerDemo {
 //            - because Counter is a local class (declared inside the method), we hide A with '?'
 //		R = output element type (what the gatherer emits downstream) - Long here
     static <T> Gatherer<T, ?, Long> countElementsInParallel() {
-
         final class Counter { long n; } // local class: cannot be static
 
         return Gatherer.of( // not Gatherer.ofSequential(..) this time
@@ -36,13 +35,15 @@ public class CombinerDemo {
                     state.n++; // just counting the elements
                     return !downstream.isRejecting();
                 }),
-                (Counter left, Counter right) -> {  // combiner
+                // combiner
+                (Counter left, Counter right) -> {
                     // 'left' and 'right' are two partial states (each may already represent merged subtasks)
                     // add them together into 'left'; keep 'left' and discard 'right'
                     left.n += right.n;
                     return left;
                 },
-                (Counter state, Gatherer.Downstream<? super Long> downstream) ->   // finisher
+                // finisher
+                (Counter state, Gatherer.Downstream<? super Long> downstream) ->
                         // push our overall number downstream
                         downstream.push(state.n)
         );
