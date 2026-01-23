@@ -1,28 +1,30 @@
-import j25.assignment.*;
+package j25.assignment;  // changed from Java 21 compact source file/instance main
 
+import module java.base; // changed from Java 21 compact source file/instance main
 
-void main() {
-		seqColl();
-		seqSet();
-		seqMap();
-		
-		EngineeringFaculty engFaculty      = new EngineeringFaculty();
-		SoftwareEngineeringDept swEngDept  = new SoftwareEngineeringDept();
+public class University{ // changed from Java 21 compact source file/instance main
+    public static void main(String []args){
+        seqColl(); // changed from Java 21 - made all methods 'static'
+        seqSet();
+        seqMap();
+
+        EngineeringFaculty engFaculty      = new EngineeringFaculty();
+        SoftwareEngineeringDept swEngDept  = new SoftwareEngineeringDept();
         LecturerRecord mikeBloggs          = new LecturerRecord("Mike Bloggs", 44, engFaculty, swEngDept);
-		recordPatterns(mikeBloggs);
-		
-		BusinessFaculty businessFaculty    = new BusinessFaculty();
-		AccountingDept accountingDept      = new AccountingDept();
+        recordPatterns(mikeBloggs);
+
+        BusinessFaculty businessFaculty    = new BusinessFaculty();
+        AccountingDept accountingDept      = new AccountingDept();
         LecturerRecord alanAustin          = new LecturerRecord("Alan Austin", 64, businessFaculty, accountingDept);
-		recordPatterns(alanAustin);
-		
-		HumanitiesFaculty humanitiesFaculty = new HumanitiesFaculty();
-		SocialCareDept socialCareDept       = new SocialCareDept();
+        recordPatterns(alanAustin);
+
+        HumanitiesFaculty humanitiesFaculty = new HumanitiesFaculty();
+        SocialCareDept socialCareDept       = new SocialCareDept();
         LecturerRecord lisaBloggs           = new LecturerRecord("Lisa Bloggs", 65, humanitiesFaculty, socialCareDept);
-		recordPatterns(lisaBloggs);
+        recordPatterns(lisaBloggs);
 
     }
-	void seqColl(){
+	static void seqColl(){
         // A sequenced collection is a Collection whose elements have a defined encounter order.
         SequencedCollection<LecturerRecord> engColl = new ArrayList<>();
 
@@ -52,7 +54,7 @@ void main() {
 			System.out.println(lecturer);
 		}
     }
-	void seqSet(){
+	static void seqSet(){
 		// A sequenced set is a SequencedCollection with no duplicate elements.
 		SequencedSet<LecturerRecord> busSet = new LinkedHashSet<>();
 
@@ -85,7 +87,7 @@ void main() {
 			System.out.println(lecturer);
 		}
 	}
-	void seqMap(){
+	static void seqMap(){
         // A sequenced map is a Map whose entries have a defined encounter order.
         SequencedMap<LecturerRecord, String> humanitiesMap = new LinkedHashMap<>();
 
@@ -118,7 +120,7 @@ void main() {
 		}
 
     }
-	void recordPatterns(Object obj){		
+	static void recordPatterns(Object obj){
 		// Calculate the staff that either should be retired or are reaching retirement  age
 		// within the next year i.e. age >= 64 (retirement age is 65). 
         System.out.println(
@@ -138,4 +140,5 @@ void main() {
         );
 		
 	}
+}
 

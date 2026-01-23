@@ -100,4 +100,8 @@ package j25.assignment;
 
 import module java.base;
 ```
+## Definition of Done
+- `LecturerCsvLoader.java` compiles successfully
+- The file uses `import module java.base;`
+- The old individual `import java...` lines have been removed
 
