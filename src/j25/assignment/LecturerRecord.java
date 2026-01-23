@@ -1,4 +1,4 @@
-package j25.assignment.solutions;
+package j25.assignment;
 
 public final record LecturerRecord(String name, Integer age, Faculty faculty, Department dept) {
     // custom compact constructor

@@ -1,4 +1,4 @@
-import j25.assignment.solutions.*;
+import j25.assignment.*;
 
 
 void main() {

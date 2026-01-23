@@ -1,4 +1,4 @@
-package j25.assignment.solutions;
+package j25.assignment;
 
 public final class BusinessFaculty extends Faculty {
     public void business(){ // custom BusinessFaculty method

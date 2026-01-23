@@ -1,4 +1,4 @@
-import j25.assignment.solutions.LecturerCsvLoader;
+import j25.assignment.LecturerCsvLoader;
 
 void main() throws Exception {
     // Path relative to the project root

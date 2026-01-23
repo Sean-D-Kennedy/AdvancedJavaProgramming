@@ -1,4 +1,4 @@
-package j25.assignment.solutions;
+package j25.assignment;
 
 public final class ComputerEngineeringDept extends Department {
     public void compEng(){

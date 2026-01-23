@@ -1,4 +1,4 @@
-package j25.assignment.solutions;
+package j25.assignment;
 
 public final class AccountingDept extends Department {
     public void accounting(){

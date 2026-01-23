@@ -1,4 +1,4 @@
-package j25.assignment.solutions;
+package j25.assignment;
 
 abstract public sealed class Department
         permits ComputerEngineeringDept, SoftwareEngineeringDept,

@@ -1,4 +1,4 @@
-package j25.assignment.solutions;
+package j25.assignment;
 
 public final class HumanitiesFaculty extends Faculty {
     public void humanities(){ // custom HumanitiesFaculty method

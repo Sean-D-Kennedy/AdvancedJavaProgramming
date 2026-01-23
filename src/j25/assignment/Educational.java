@@ -1,3 +1,3 @@
-package j25.assignment.solutions;
+package j25.assignment;
 
 public sealed interface Educational permits Faculty {}
