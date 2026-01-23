@@ -4,6 +4,7 @@
 Add a well-formatted **Markdown documentation comment** to `LecturerCsvLoader.load(...)`, then generate **HTML Javadoc** to verify the documentation renders correctly.
 > Important: Markdown-style text inside Javadoc does not reliably render as Markdown in generated Javadocs.
 > To guarantee consistent formatting in the browser output, we’ll use HTML inside the Javadoc block (headings, code blocks, lists).
+
 ---
 
 ## Step 1 — Confirm the file and module import are in place
@@ -80,6 +81,8 @@ You should see:
 - Bullet points under the Notes section
 
 If you see raw tags like `<h2>` or `<pre>`, it usually means the Javadoc comment was not copied correctly or the wrong file/scope was generated.
+
+---
 ## Definition of Done
 
 - `load(Path path)` has a JavaDoc comment that uses HTML (headings, code blocks, list)

@@ -3,6 +3,8 @@
 ## Goal
 Create a new class called `LecturerCsvLoader` and use it to practise **Module Import Declarations**.
 
+---
+
 You will start with a version that uses multiple imports (the “old way”), then replace them with:
 
 ```java
@@ -100,6 +102,7 @@ package j25.assignment;
 
 import module java.base;
 ```
+---
 ## Definition of Done
 - `LecturerCsvLoader.java` compiles successfully
 - The file uses `import module java.base;`

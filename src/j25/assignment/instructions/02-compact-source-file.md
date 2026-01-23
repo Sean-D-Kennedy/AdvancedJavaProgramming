@@ -3,6 +3,8 @@
 ## Goal
 Create a **compact source file** that runs the CSV loader and prints the loaded lecturers.
 
+---
+
 This file is a small runnable “demo”:
 - compact source files (top-level `void main()`)
 - default package behavior (no `package ...;`)
@@ -60,6 +62,8 @@ Expected output:
 - The absolute CSV path
 - Loaded X lecturers:
 - The list of lecturers
+
+---
 ## Definition of Done
 - The file compiles and runs as a compact source file (top-level void main())
 - It successfully loads and prints lecturers from lecturers.csv
