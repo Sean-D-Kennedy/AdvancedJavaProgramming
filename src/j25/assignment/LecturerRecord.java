@@ -13,6 +13,30 @@ public final record LecturerRecord(String name, Integer age, Faculty faculty, De
             throw new IllegalArgumentException("\n" + errorMsg);
         }
     }
+    public LecturerRecord(String name, Integer age, String facultyCode, String deptCode) {
+        // Normalise codes first (trim + uppercase keeps CSV forgiving)
+        var fCode = facultyCode.trim().toUpperCase();
+        var dCode = deptCode.trim().toUpperCase();
+        // Delegate to the canonical record constructor
+        this(name, age, facultyFromCode(fCode), deptFromCode(dCode));
+    }
+    private static Faculty facultyFromCode(String code) {
+        return switch (code) {
+            case "ENGINEERING" -> new EngineeringFaculty();
+            case "BUSINESS" -> new BusinessFaculty();
+            case "HUMANITIES" -> new HumanitiesFaculty();
+            default -> throw new IllegalArgumentException("Unknown faculty code: " + code);
+        };
+    }
+    private static Department deptFromCode(String code) {
+        return switch (code) {
+            case "SOFTWARE_ENGINEERING" -> new SoftwareEngineeringDept();
+            case "COMPUTER_ENGINEERING" -> new ComputerEngineeringDept();
+            case "ACCOUNTING" -> new AccountingDept();
+            case "SOCIAL_CARE" -> new SocialCareDept();
+            default -> throw new IllegalArgumentException("Unknown department code: " + code);
+        };
+    }
     public boolean hasPhd(){
         String prefix = name.toUpperCase().substring(0,3);  // "Dr. ...".
         String suffix = name.toUpperCase().substring(name.length()-3); // "... PhD"

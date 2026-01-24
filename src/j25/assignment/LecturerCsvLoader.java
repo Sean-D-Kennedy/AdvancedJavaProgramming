@@ -74,40 +74,12 @@ public final class LecturerCsvLoader {
             throw new IllegalArgumentException("Bad CSV row (expected 4 columns): " + line);
         }
 
-        // Column 0: name (trim to remove extra spaces)
-        var name = parts[0].trim();
+        var name        = parts[0].trim();
+        var age         = Integer.valueOf(parts[1].trim());
+        var facultyCode = parts[2].trim();
+        var deptCode    = parts[3].trim();
 
-        // Column 1: age (Integer to match your record signature)
-        var age = Integer.valueOf(parts[1].trim());
-
-        // Column 2: faculty code -> concrete Faculty instance
-        var faculty = parseFaculty(parts[2].trim());
-
-        // Column 3: department code -> concrete Department instance
-        var dept = parseDepartment(parts[3].trim());
-
-        // Build the record (your compact constructor still validates name/age).
-        return new LecturerRecord(name, age, faculty, dept);
+        return new LecturerRecord(name, age, facultyCode, deptCode);
     }
 
-    private static Faculty parseFaculty(String code) {
-        // Map a simple CSV code to a concrete Faculty subtype.
-        return switch (code) {
-            case "ENGINEERING" -> new EngineeringFaculty();
-            case "BUSINESS" -> new BusinessFaculty();
-            case "HUMANITIES" -> new HumanitiesFaculty();
-            default -> throw new IllegalArgumentException("Unknown faculty code: " + code);
-        };
-    }
-
-    private static Department parseDepartment(String code) {
-        // Map a simple CSV code to a concrete Department subtype.
-        return switch (code) {
-            case "SOFTWARE_ENGINEERING" -> new SoftwareEngineeringDept();
-            case "COMPUTER_ENGINEERING" -> new ComputerEngineeringDept();
-            case "ACCOUNTING" -> new AccountingDept();
-            case "SOCIAL_CARE" -> new SocialCareDept();
-            default -> throw new IllegalArgumentException("Unknown department code: " + code);
-        };
-    }
 }
