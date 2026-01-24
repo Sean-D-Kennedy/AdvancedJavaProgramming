@@ -25,7 +25,7 @@ public final record LecturerRecord(String name, Integer age, Faculty faculty, De
             case "ENGINEERING" -> new EngineeringFaculty();
             case "BUSINESS" -> new BusinessFaculty();
             case "HUMANITIES" -> new HumanitiesFaculty();
-            default -> throw new IllegalArgumentException("Unknown faculty code: " + code);
+            default -> throw new IllegalArgumentException("Unknown faculty code: " + code + LecturerCsvLoader.csvContext());
         };
     }
     private static Department deptFromCode(String code) {
@@ -34,7 +34,7 @@ public final record LecturerRecord(String name, Integer age, Faculty faculty, De
             case "COMPUTER_ENGINEERING" -> new ComputerEngineeringDept();
             case "ACCOUNTING" -> new AccountingDept();
             case "SOCIAL_CARE" -> new SocialCareDept();
-            default -> throw new IllegalArgumentException("Unknown department code: " + code);
+            default -> throw new IllegalArgumentException("Unknown department code: " + code + LecturerCsvLoader.csvContext());
         };
     }
     public boolean hasPhd(){

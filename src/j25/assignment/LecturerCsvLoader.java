@@ -1,12 +1,10 @@
 package j25.assignment;
 
-//import java.io.IOException;
-//import java.nio.file.Files;
-//import java.nio.file.Path;
-//import java.util.List;
 import module java.base;
 
 public final class LecturerCsvLoader {
+    static final ScopedValue<Path> CSV_PATH = ScopedValue.newInstance();
+    static final ScopedValue<Integer> CSV_ROW = ScopedValue.newInstance();
 
     private LecturerCsvLoader() { }
 
@@ -37,33 +35,43 @@ public final class LecturerCsvLoader {
      * @throws IllegalArgumentException if a row is malformed or contains unknown codes
      */
     public static List<LecturerRecord> load(Path path) throws IOException {
-        // 1) Read the entire file into memory as a list of lines.
-        //    For small assignment CSVs, this keeps the code very simple.
-        var lines = Files.readAllLines(path);
+        // scoping CSV_PATH for the whole method; call() returns a value
+        return ScopedValue.where(CSV_PATH, path).call(() -> {
+            var lines = Files.readAllLines(path);
+            if (lines.isEmpty()) return List.of(); // empty list
 
-        // 2) If the file is empty, there is nothing to parse.
-        if (lines.isEmpty()) return List.of();
+            // building a mutable list but will return an unmodifiable copy at the end
+            var result = new java.util.ArrayList<LecturerRecord>();
 
-        // 3) We'll build the results in a mutable list,
-        //    then return an unmodifiable copy at the end.
-        var result = new java.util.ArrayList<LecturerRecord>();
+            // Start at index 1 to skip the header row: name,age,faculty,dept
+            for (int i = 1; i < lines.size(); i++) {
+                var line = lines.get(i).trim();
+                if (line.isBlank()) continue;
 
-        // 4) Start at index 1 to skip the header row:
-        //    name,age,faculty,dept
-        for (int i = 1; i < lines.size(); i++) {
-            var line = lines.get(i).trim();
+                var rowNumber = i + 1; // i==1 is the 2nd row etc..
 
-            // 5) Ignore blank lines (helps if the file ends with a newline).
-            if (line.isBlank()) continue;
+                // Bind the row number for the duration of parsing this specific line
+                var record =
+                        ScopedValue.where(CSV_ROW, rowNumber)
+                                .call(() -> parseLine(line));
 
-            // 6) Convert a CSV line into a LecturerRecord and store it.
-            result.add(parseLine(line));
-        }
+                result.add(record);
+            }
 
-        // 7) Return an unmodifiable snapshot so callers can't mutate the internal list.
-        return List.copyOf(result);
+            // Return an unmodifiable snapshot so callers can't mutate the internal list
+            return List.copyOf(result);
+        });
     }
+    static String csvContext() {
+        var sb = new StringBuilder();
+        // A ScopedValue only exists inside a scope created by ScopedValue.where(...).
+        // isBound() = "are we currently inside that scope?"
+        // If yes, get() returns the current value; if no, we skip it to avoid errors.
+        if (CSV_PATH.isBound()) sb.append(" file=").append(CSV_PATH.get());
+        if (CSV_ROW.isBound()) sb.append(", row=").append(CSV_ROW.get());
 
+        return sb.isEmpty() ? "" : " (" + sb + ")";
+    }
     private static LecturerRecord parseLine(String line) {
         // Expect exactly 4 columns:
         // name, age, facultyCode, deptCode
@@ -71,7 +79,7 @@ public final class LecturerCsvLoader {
 
         // Defensive check: makes errors clearer when the CSV row is malformed.
         if (parts.length != 4) {
-            throw new IllegalArgumentException("Bad CSV row (expected 4 columns): " + line);
+            throw new IllegalArgumentException("Bad CSV row (expected 4 columns): " + line + csvContext());
         }
 
         var name        = parts[0].trim();
