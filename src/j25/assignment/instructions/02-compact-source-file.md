@@ -39,8 +39,8 @@ void main() {
     var workingDir = Path.of("").toAbsolutePath(); // current working directory (where relative paths start)
     var csvPath = workingDir.resolve("src/j25/assignment/lecturers.csv"); // path relative to working dir
 
-    System.out.println("Working dir: " + workingDir);
-    System.out.println("CSV path:    " + csvPath);
+    IO.println("Working dir: " + workingDir);
+    IO.println("CSV path:    " + csvPath);
 
     if (!Files.exists(csvPath)) {
         throw new IllegalStateException("CSV not found. Check working directory and file location: " + csvPath);
@@ -48,11 +48,11 @@ void main() {
     try {
         var lecturers = LecturerCsvLoader.load(csvPath);
 
-        System.out.println("Loaded " + lecturers.size() + " lecturers:");
-        lecturers.forEach(System.out::println);
+        IO.println("Loaded " + lecturers.size() + " lecturers:");
+        lecturers.forEach(IO::println);
     }
     catch (IOException e) { // Part 04 will refactor `e` to `_`
-        System.out.println("Could not read CSV file at: " + csvPath);
+        IO.println("Could not read CSV file at: " + csvPath);
     }
 }
 ```

@@ -15,13 +15,13 @@ Find the `catch` block that currently looks like this:
 
 ```
     catch (IOException e) { // Part 04 will refactor `e` to `_`
-        System.out.println("Could not read CSV file at: " + csvPath);
+        IO.println("Could not read CSV file at: " + csvPath);
     }
 ```
 Refactor it so the exception variable is unnamed:
 ```
     catch (IOException _) { // unnamed variable: we intentionally ignore the exception object
-        System.out.println("Could not read CSV file at: " + csvPath);
+        IO.println("Could not read CSV file at: " + csvPath);
     }
 ```
 ## Part B — Unnamed patterns in a `record` pattern
@@ -44,7 +44,7 @@ static String retirementSummary(Object obj) {
 Now call it from `main()` after the lecturers are loaded (i.e., after `var lecturers = LecturerCsvLoader.load(csvPath);`
 ```
 if (!lecturers.isEmpty()) {
-System.out.println(retirementSummary(lecturers.getFirst()));
+    IO.println(retirementSummary(lecturers.getFirst()));
 }
 ```
 ---

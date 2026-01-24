@@ -1,7 +1,7 @@
 # 01 — Module Import Declarations
 
 ## Goal
-Create a new class called `LecturerCsvLoader` and use it to practise **Module Import Declarations**.
+Create `LecturerCsvLoader` and practise **Module Import Declarations** by ensuring the file **compiles** successfully (we’ll run the code for the first time in Part 02).
 
 ---
 
@@ -104,7 +104,7 @@ import module java.base;
 ```
 ---
 ## Definition of Done
-- `LecturerCsvLoader.java` compiles successfully
+- `LecturerCsvLoader.java` **compiles** successfully (not running anything yet)
 - The file uses `import module java.base;`
 - The old individual `import java...` lines have been removed
 
