@@ -1,4 +1,4 @@
-package collections;
+package j8.collections.assignment;
 
 import java.util.Collections;
 import java.util.Map;
@@ -30,32 +30,48 @@ public class MapsToMaps {
         // Setup "publisherToSubscribers"
         // publisher -> number of subscribers (total)   
         // V2 -> V1
-        channelToSubscribers.forEach((channel, numSubscribers) ->{
-            String publisher = channelToPublisher.get(channel);  // get the publisher for that channel
-            // does that publisher already exist in the publisherToSubscribers map?
-            if (publisherToSubscribers.containsKey(publisher)) {
-                int currentSubscribers = publisherToSubscribers.get(publisher);
-                int newVal = currentSubscribers + numSubscribers;
-                publisherToSubscribers.put(publisher, newVal);// replaces old value 
-            } else {
-                publisherToSubscribers.put(publisher, numSubscribers);
-            }            
-        });
+        // Add this channel's subscriber count to the publisher's running total.
+        // Map.merge(key, value, remappingFn) inserts the value if the key is new;
+        // otherwise it replaces the existing value with remappingFn(oldValue, value).
+        // Integer::sum is a method reference to a static method: (oldVal, value) -> Integer.sum(oldVal, value)
+        channelToSubscribers.forEach((channel, subs) ->
+                // if the publisher is not there, insert the publisher -> subs
+                // if the publisher is already there, update the subs to be the current value + subs
+                publisherToSubscribers.merge(channelToPublisher.get(channel), subs, Integer::sum)
+//                publisherToSubscribers.merge(channelToPublisher.get(channel), subs,
+//                        (oldVal, subsToAdd) -> oldVal + subsToAdd)
+        );
+
 
         // Output "publisherToSubscribers"
-        publisherToSubscribers.forEach(
-                (publisher, numSubscribers) -> 
-                    System.out.println("publisher: "+publisher+"; numSubscribers:"+numSubscribers));
+//        publisherToSubscribers.forEach(
+//                (publisher, numSubscribers) ->
+//                    System.out.println("publisher: "+publisher+"; numSubscribers:"+numSubscribers));
+        publisherToSubscribers.forEach((publisher, subs) ->
+                System.out.printf("Publisher: %s; numSubscribers: %d%n", publisher, subs)
+        );
 
         // Who has the most/least subscribers?
-        int minSubscribers = Collections.min(publisherToSubscribers.values());
-        int maxSubscribers = Collections.max(publisherToSubscribers.values());
-        publisherToSubscribers.forEach((publisher, numSubscribers) -> {
-            if (numSubscribers == maxSubscribers) {
-                System.out.println("Publisher with most subscribers: " + publisher + " " + maxSubscribers);
-            } else if (numSubscribers == minSubscribers) {
-                System.out.println("Publisher with fewest subscribers: " + publisher + " " + minSubscribers);
-            }
-        });
+//        int minSubscribers = Collections.min(publisherToSubscribers.values());
+//        int maxSubscribers = Collections.max(publisherToSubscribers.values());
+//        publisherToSubscribers.forEach((publisher, numSubscribers) -> {
+//            if (numSubscribers == maxSubscribers) {
+//                System.out.println("Publisher with most subscribers: " + publisher + " " + maxSubscribers);
+//            } else if (numSubscribers == minSubscribers) {
+//                System.out.println("Publisher with fewest subscribers: " + publisher + " " + minSubscribers);
+//            }
+//        });
+
+        // publisherToSubscribers:
+        //    "Charlie Chaplin" -> 130_000
+        //    "Eckhart Tolle"   ->  30_000
+        // entrySet() gives us these pairs where each pair is a Map.Entry<K, V>
+        // Map.Entry.comparingByValue() returns a Comparator that compares entries by their value
+        // i.e. when comparing two entries, compare their subscriber counts (the values)
+        var minEntry = Collections.min(publisherToSubscribers.entrySet(), Map.Entry.comparingByValue());
+        var maxEntry = Collections.max(publisherToSubscribers.entrySet(), Map.Entry.comparingByValue());
+
+        System.out.println("Publisher with most subscribers: " + maxEntry.getKey() + " " + maxEntry.getValue());
+        System.out.println("Publisher with fewest subscribers: " + minEntry.getKey() + " " + minEntry.getValue());
     }
 }
