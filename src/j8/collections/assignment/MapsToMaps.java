@@ -30,6 +30,26 @@ public class MapsToMaps {
         // Setup "publisherToSubscribers"
         // publisher -> number of subscribers (total)   
         // V2 -> V1
+        channelToSubscribers.forEach((channel, subs) ->
+                publisherToSubscribers.merge(channelToPublisher.get(channel), subs, Integer::sum)
+        );
+
+        // Output "publisherToSubscribers"
+        publisherToSubscribers.forEach((publisher, subs) ->
+                System.out.printf("Publisher: %s; numSubscribers: %d%n", publisher, subs)
+        );
+
+        // Calculate the publisher with the min/max subscribers
+        var minEntry = Collections.min(publisherToSubscribers.entrySet(), Map.Entry.comparingByValue());
+        var maxEntry = Collections.max(publisherToSubscribers.entrySet(), Map.Entry.comparingByValue());
+        System.out.println("Publisher with most subscribers: " + maxEntry.getKey() + " " + maxEntry.getValue());
+        System.out.println("Publisher with fewest subscribers: " + minEntry.getKey() + " " + minEntry.getValue());
+    }
+}
+/*
+        // Setup "publisherToSubscribers"
+        // publisher -> number of subscribers (total)
+        // V2 -> V1
         // Add this channel's subscriber count to the publisher's running total.
         // Map.merge(key, value, remappingFn) inserts the value if the key is new;
         // otherwise it replaces the existing value with remappingFn(oldValue, value).
@@ -44,24 +64,11 @@ public class MapsToMaps {
 
 
         // Output "publisherToSubscribers"
-//        publisherToSubscribers.forEach(
-//                (publisher, numSubscribers) ->
-//                    System.out.println("publisher: "+publisher+"; numSubscribers:"+numSubscribers));
         publisherToSubscribers.forEach((publisher, subs) ->
                 System.out.printf("Publisher: %s; numSubscribers: %d%n", publisher, subs)
         );
 
-        // Who has the most/least subscribers?
-//        int minSubscribers = Collections.min(publisherToSubscribers.values());
-//        int maxSubscribers = Collections.max(publisherToSubscribers.values());
-//        publisherToSubscribers.forEach((publisher, numSubscribers) -> {
-//            if (numSubscribers == maxSubscribers) {
-//                System.out.println("Publisher with most subscribers: " + publisher + " " + maxSubscribers);
-//            } else if (numSubscribers == minSubscribers) {
-//                System.out.println("Publisher with fewest subscribers: " + publisher + " " + minSubscribers);
-//            }
-//        });
-
+        // Calculate the publisher with the min/max subscribers
         // publisherToSubscribers:
         //    "Charlie Chaplin" -> 130_000
         //    "Eckhart Tolle"   ->  30_000
@@ -70,8 +77,7 @@ public class MapsToMaps {
         // i.e. when comparing two entries, compare their subscriber counts (the values)
         var minEntry = Collections.min(publisherToSubscribers.entrySet(), Map.Entry.comparingByValue());
         var maxEntry = Collections.max(publisherToSubscribers.entrySet(), Map.Entry.comparingByValue());
-
         System.out.println("Publisher with most subscribers: " + maxEntry.getKey() + " " + maxEntry.getValue());
         System.out.println("Publisher with fewest subscribers: " + minEntry.getKey() + " " + minEntry.getValue());
-    }
-}
+
+ */
