@@ -1,7 +1,7 @@
 # 01 — Module Import Declarations
 
 ## Goal
-Create `LecturerCsvLoader` and practise **Module Import Declarations** by ensuring the file **compiles** successfully (we’ll run the code for the first time in Part 02).
+Create `LecturerCsvLoader` and practice **Module Import Declarations** by ensuring the file **compiles** successfully (we’ll run the code for the first time in Part 02).
 
 ---
 
@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.ArrayList;
 
 public final class LecturerCsvLoader {
 
@@ -37,7 +38,7 @@ public final class LecturerCsvLoader {
         if (lines.isEmpty()) return List.of();
 
         // Build results in a mutable list, then return an unmodifiable copy
-        var result = new java.util.ArrayList<LecturerRecord>();
+        var result = new ArrayList<LecturerRecord>();
 
         // Skip header row: name,age,faculty,dept
         for (int i = 1; i < lines.size(); i++) {
@@ -91,6 +92,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.ArrayList;
 ```
 with
 ```java
