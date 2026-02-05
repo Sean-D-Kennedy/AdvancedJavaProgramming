@@ -31,15 +31,15 @@ var lecturers = LecturerCsvLoader.load(csvPath);
 Immediately after that line, add the following code:
 
 ```java
-    var designGroups = lecturers.stream()
+var designGroups = lecturers.stream()
             .gather(Gatherers.windowFixed(3)) // groups of 3 lecturers for course design
             .toList();
 
-    IO.println("\nCourse design groups (3 per group):");
-    for (int i = 0; i < designGroups.size(); i++) {
-        var group = designGroups.get(i);
-        IO.println("Group " + (i + 1) + " (" + group.size() + " lecturers): " + group);
-    }    
+IO.println("\nCourse design groups (3 per group):");
+for (int i = 0; i < designGroups.size(); i++) {
+    var group = designGroups.get(i);
+    IO.println("Group " + (i + 1) + " (" + group.size() + " lecturers): " + group);
+}    
 ```
 ---
 
