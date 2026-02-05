@@ -32,7 +32,7 @@ public LecturerRecord(String name, Integer age, String facultyCode, String deptC
 ---
 
 ## Step 2 — Add mapping helpers to `LecturerRecord`
-Still in `LecturerRecord.java`, add these helper methods (below the new constructor is fine):
+Still in `LecturerRecord.java`, add these helper methods to the record (below the new constructor is fine):
 ```java
 private static Faculty facultyFromCode(String code) {
     return switch (code) {
@@ -48,7 +48,7 @@ private static Department deptFromCode(String code) {
         case "COMPUTER_ENGINEERING" -> new ComputerEngineeringDept();
         case "ACCOUNTING" -> new AccountingDept();
         case "SOCIAL_CARE" -> new SocialCareDept();
-            default -> throw new IllegalArgumentException("Unknown department code: " + code);
+        default -> throw new IllegalArgumentException("Unknown department code: " + code);
     };
 }
 ```
