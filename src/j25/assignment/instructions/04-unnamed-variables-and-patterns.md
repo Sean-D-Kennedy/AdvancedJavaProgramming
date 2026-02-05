@@ -13,13 +13,13 @@ Open:
 
 Find the `catch` block that currently looks like this:
 
-```
+```java
     catch (IOException e) { // Part 04 will refactor `e` to `_`
         IO.println("Could not read CSV file at: " + csvPath);
     }
 ```
 Refactor it so the exception variable is unnamed:
-```
+```java
     catch (IOException _) { // unnamed variable: we intentionally ignore the exception object
         IO.println("Could not read CSV file at: " + csvPath);
     }
@@ -41,8 +41,8 @@ static String retirementSummary(Object obj) {
     };
 }
 ```
-Now call it from `main()` after the lecturers are loaded (i.e., after `var lecturers = LecturerCsvLoader.load(csvPath);`
-```
+Now call it from `main()` after the lecturers are loaded (i.e., after `var lecturers = LecturerCsvLoader.load(csvPath);`)
+```java
 if (!lecturers.isEmpty()) {
     IO.println(retirementSummary(lecturers.getFirst()));
 }
