@@ -2,22 +2,47 @@
 
 This folder contains the step-by-step instructions for a Java 25 practice assignment.
 
-You will recreate the same final working result by following the instruction files in order.
+You will recreate the final working result by following the instruction files in order.
+
+---
+
+## Starter ZIP (recommended starting point)
+
+Use the starter template ZIP in this folder:
+
+- `Java25-Assignment-Starter.zip`
+
+Unzip it, then copy the `src/` folder into your project (so you end up with `src/j25/assignment/...`).
+> If you previously cloned this GitHub repo: ignore the repo’s `src/` folder for now.
+> Replace it with the ZIP’s `src/` folder (delete/rename your existing `src/`, then copy in the ZIP’s `src/`).
+
+The starter ZIP contains:
+- the supporting domain types (Faculty/Department + implementations)
+- `LecturerRecord.java` (starter “domain model” version)
+- `lecturers.csv`
+
+The starter ZIP intentionally does **not** include:
+- `LecturerCsvLoader.java`
+- `RunLecturerCsvLoader.java`
+
+You will create those by following Parts 01–07. 
+
+`Start here`: src/j25/assignment/instructions/README.md
+
 
 ---
 
 ## What you will (and won’t) work on
 
 ### Files you WILL create from scratch
-These two files are intentionally treated as “student-written” files.
-You should create them by following the instruction steps exactly:
+These two files are intentionally treated as “learner-written” files:
 
 - `LecturerCsvLoader.java`
 - `RunLecturerCsvLoader.java`
 
-### Files you WILL edit (but NOT delete)
-This file already exists and acts as your “domain model”.
-You will refactor it during later steps, but you do not create it from scratch:
+### Files you WILL edit
+This file already exists in the starter ZIP and acts as your “domain model”.
+You will refactor it during later steps:
 
 - `LecturerRecord.java`
 
@@ -25,7 +50,7 @@ You will also use:
 - `lecturers.csv` (you will briefly edit it to test error handling)
 
 ### Files you SHOULD NOT edit
-Everything else in the `assignment` folder is supporting code used by the three files above.
+Everything else in `j25/assignment` is supporting code used by the files above.
 
 Do **not** edit these:
 - `Faculty`, `Department`
@@ -61,16 +86,7 @@ You run the program using:
 
 ---
 
-## If you want the “full learning experience” (reset)
+## Reference solution (when stuck)
 
-This repo already contains the final working result.
-
-If you want to practise properly, reset yourself to a “blank slate” for the two student-written files:
-
-1) Delete these two files only:
-- `LecturerCsvLoader.java`
-- `RunLecturerCsvLoader.java`
-
-2) Recreate them by following the instruction MD files from Part 01 onward.
-
-✅ Do **not** delete `LecturerRecord.java` — it is provided as the starting domain model and is refactored during later parts.
+This GitHub repo contains a finished working version.
+Use it only to compare if you get stuck.
