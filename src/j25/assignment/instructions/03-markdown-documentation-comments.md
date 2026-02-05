@@ -1,7 +1,7 @@
 # 03 — Documentation Comments (HTML in JavaDoc) + Generate Javadoc
 
 ## Goal
-Add a well-formatted **Markdown documentation comment** to `LecturerCsvLoader.load(...)`, then generate **HTML Javadoc** to verify the documentation renders correctly.
+Add a well-formatted **Javadoc comment using HTML** to `LecturerCsvLoader.load(...)`, then generate **HTML Javadoc** to verify the documentation renders correctly.
 > Important: Markdown-style text inside Javadoc does not reliably render as Markdown in generated Javadocs.
 > To guarantee consistent formatting in the browser output, we’ll use HTML inside the Javadoc block (headings, code blocks, lists).
 
@@ -58,15 +58,14 @@ Paste the following JavaDoc block directly above it:
 ```
 ## Step 3 — Generate the HTML Javadocs
 In IntelliJ:
-1.	Select LecturerCsvLoader.java in the Project tool window
-2.	Go to: Tools → Generate JavaDoc…
-3.	Choose File scope (only this one file)
-4.	Set an output folder, for example:
-•	out/javadoc/j25-assignment
+1.	Select the package `j25.assignment` in the Project tool window
+2.	Go to: `Tools → Generate JavaDoc`…
+3.	Choose `Directory` (the package is auto-selected)
+4.	Set an output directory, for example:  
+   - out/javadoc/j25-assignment
 5.	Click Generate
-6.	Open the generated index.html in a browser
+6.	Open the generated `index.html` in a browser
 
-## Step 4 — Verify the result
 ## Step 4 — Verify the result
 
 Open the generated `index.html` (in your output folder) and navigate to the documentation for:
