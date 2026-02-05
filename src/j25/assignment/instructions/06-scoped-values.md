@@ -47,7 +47,7 @@ Change `load(Path path)` to:
             if (lines.isEmpty()) return List.of(); // empty list
 
             // building a mutable list but will return an unmodifiable copy at the end
-            var result = new java.util.ArrayList<LecturerRecord>();
+            var result = new ArrayList<LecturerRecord>();
 
             // Start at index 1 to skip the header row: name,age,faculty,dept
             for (int i = 1; i < lines.size(); i++) {
